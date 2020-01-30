@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.choices{
+  opacity: .75;
+  border-radius: 10px;
+  border: 1px solid black;
+  height: 300px;
+  width: 300px;
+  margin: 0;
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #a4bf52;
+}
+
+.choices:hover{
+    height: 325px;
+    width: 325px;
+    opacity: 1;
+    margin: 5px;
+    background-color: #a4bf52;
+}
+
+.choices p{
+  opacity:1;
+  text-align: center;
+  font-size: 25px;
+  font-family: "Bebas Neue", ariel;
+}
