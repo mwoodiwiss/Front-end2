@@ -1,7 +1,10 @@
 import React, { useState, useContext } from "react";
+import {Route} from 'react-router-dom';
 import axios from "axios";
-import logo from "./logo.svg";
 import "./App.css";
+import Welcome from './components/User/WelcomePage';
+import GuestLogin from './components/User/GuestLogin';
+import GuestRegister from './components/User/GuestRegister';
 // Contexts
 import { WorkOutContext } from "./contexts/WorkOutContext";
 import { ExcerciseContext } from "./contexts/ExcerciseContext";
@@ -36,19 +39,19 @@ function App() {
   return (
     <WorkOutContext.Provider value={{ workOut, addWorkout }}>
       <ExcerciseContext.Provider value={{ excercise, addExcercise }}>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
+        <Route exact path='/' component={Welcome}/>
+        <Route path='/login' component={GuestLogin}/>
+        <Route path='/register' component={GuestRegister}/>
+          <header>
             <p>Workout Notes: {wrkout1.notes}</p>
             <p>Workout Date: {wrkout1.date}</p>
             <p>Excercise Name: {excrcse1.name}</p>
             <p>Excercise Reps: {excrcse1.reps}</p>
             <p>Excercise Weight: {excrcse1.weight}</p>
-          </header>
-        </div>
+          </header> 
       </ExcerciseContext.Provider>
     </WorkOutContext.Provider>
-  );
+  )
 }
 
 export default App;
