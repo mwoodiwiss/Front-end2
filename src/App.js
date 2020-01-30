@@ -42,8 +42,7 @@ function App() {
         <Route exact path='/' component={Welcome}/>
         <Route path='/login' component={GuestLogin}/>
         <Route path='/register' component={GuestRegister}/>
-  
-          <header className="App-header">
+          <header>
             <p>Workout Notes: {wrkout1.notes}</p>
             <p>Workout Date: {wrkout1.date}</p>
             <p>Excercise Name: {excrcse1.name}</p>
