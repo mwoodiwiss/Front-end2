@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import {Route} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import axios from "axios";
 import "./App.css";
 import Welcome from './components/User/WelcomePage';
@@ -40,10 +40,11 @@ function App() {
   return (
     <WorkOutContext.Provider value={{ workOut, addWorkout }}>
       <ExcerciseContext.Provider value={{ excercise, addExcercise }}>
+        <Switch>
         <Route exact path='/' component={Welcome}/>
         <Route path='/login' component={GuestLogin}/>
         <Route path='/register' component={GuestRegister}/>
-        {/* <ProtectedRoute path='/landing' component={PLACEHOLDER}/> */}
+        {/* <ProtectedRoute path='/dashboard' component={PLACEHOLDER}/> */}
           <header>
             <p>Workout Notes: {wrkout1.notes}</p>
             <p>Workout Date: {wrkout1.date}</p>
@@ -51,6 +52,7 @@ function App() {
             <p>Excercise Reps: {excrcse1.reps}</p>
             <p>Excercise Weight: {excrcse1.weight}</p>
           </header> 
+        </Switch>
       </ExcerciseContext.Provider>
     </WorkOutContext.Provider>
   )

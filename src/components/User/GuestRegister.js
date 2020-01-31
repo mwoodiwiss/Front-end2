@@ -5,15 +5,15 @@ import {FormDiv, Body, Main} from './theme';
 
 
 
-export default function GuestRegister() {
+export default function GuestRegister(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://workout-journal-backend.herokuapp.com/api/register', values)
+        axios.post('https://workout-journal-backend.herokuapp.com/api/register')
         .then(res => {
             console.log(res.data)
             localStorage.setItem('token', res.data.token)
-            props.history.push('/landing');
+            props.history.push('/dashboard');
         });
     };
 
