@@ -38,7 +38,6 @@ export default function Dashboard() {
     `;
 
     const CardList = styled.div`
-      display: flex;
       background: #006494;
       margin: auto;
       margin-top: 20px;
