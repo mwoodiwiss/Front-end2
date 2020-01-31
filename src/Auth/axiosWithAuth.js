@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const axiosWithAuth = () => {
+export default function axiosWithAuth () {
   return axios.create({      
     baseURL: "https://workout-journal-backend.herokuapp.com/",
     headers: {
