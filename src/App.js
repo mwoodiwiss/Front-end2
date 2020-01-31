@@ -5,6 +5,7 @@ import "./App.css";
 import Welcome from './components/User/WelcomePage';
 import GuestLogin from './components/User/GuestLogin';
 import GuestRegister from './components/User/GuestRegister';
+import ProtectedRoute from './Auth/ProtectedRoute'
 // Contexts
 import { WorkOutContext } from "./contexts/WorkOutContext";
 import { ExcerciseContext } from "./contexts/ExcerciseContext";
@@ -42,6 +43,7 @@ function App() {
         <Route exact path='/' component={Welcome}/>
         <Route path='/login' component={GuestLogin}/>
         <Route path='/register' component={GuestRegister}/>
+        {/* <ProtectedRoute path='/landing' component={PLACEHOLDER}/> */}
           <header>
             <p>Workout Notes: {wrkout1.notes}</p>
             <p>Workout Date: {wrkout1.date}</p>
