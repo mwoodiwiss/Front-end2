@@ -43,4 +43,16 @@ a{
   text-align: center;
   font-size: 25px;
   font-family: "Bebas Neue", ariel;
+  ;
+}
+.form-notes {
+  height: 75px;
+  width: 300px;
+  
+}
+
+.form-numbers {
+  width: 70px;
+  margin-left: 10px;
+  margin-right: 10px;
 }

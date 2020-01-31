@@ -8,6 +8,7 @@ import GuestRegister from './components/User/GuestRegister';
 // Contexts
 import { WorkOutContext } from "./contexts/WorkOutContext";
 import { ExcerciseContext } from "./contexts/ExcerciseContext";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   const [workOut, setWorkOut] = useState({});
@@ -42,6 +43,7 @@ function App() {
         <Route exact path='/' component={Welcome}/>
         <Route path='/login' component={GuestLogin}/>
         <Route path='/register' component={GuestRegister}/>
+        <Route path='/dashboard' component={Dashboard}/>
           <header>
             <p>Workout Notes: {wrkout1.notes}</p>
             <p>Workout Date: {wrkout1.date}</p>
