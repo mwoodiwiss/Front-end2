@@ -9,6 +9,7 @@ import ProtectedRoute from './Auth/ProtectedRoute'
 // Contexts
 import { WorkOutContext } from "./contexts/WorkOutContext";
 import { ExcerciseContext } from "./contexts/ExcerciseContext";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   const [workOut, setWorkOut] = useState({});
@@ -44,7 +45,7 @@ function App() {
         <Route exact path='/' component={Welcome}/>
         <Route path='/login' component={GuestLogin}/>
         <Route path='/register' component={GuestRegister}/>
-        {/* <ProtectedRoute path='/dashboard' component={PLACEHOLDER}/> */}
+        <Route path='/dashboard' component={Dashboard}/>
           <header>
             <p>Workout Notes: {wrkout1.notes}</p>
             <p>Workout Date: {wrkout1.date}</p>
