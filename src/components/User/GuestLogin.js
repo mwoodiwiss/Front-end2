@@ -10,7 +10,7 @@ export default function GuestLogin(props) {
     const [err, setErr] = useState();
 
     const [data, setData] = useState({
-        email: '',
+        username: '',
         password: ''
     })
 
@@ -28,7 +28,7 @@ export default function GuestLogin(props) {
             .post('/api/auth/login', data)
             .then(result => {
                 localStorage.setItem('token', result.data.token)
-                // props.history.push('/dashboard')
+                props.history.push('/dashboard')
                 
             })
             .catch(e => {
@@ -44,10 +44,10 @@ export default function GuestLogin(props) {
                     <form onSubmit={handleSubmit}>
                     {err && <div className='errors'> {err}</div>}
                             <input 
-                            type="email" 
-                            name="email" 
-                            placeholder="Enter Email"
-                            value={data.email}
+                            type="text" 
+                            name="username" 
+                            placeholder="Enter Username"
+                            value={data.username}
                             onChange={handleChange}
                             />
                             <input 

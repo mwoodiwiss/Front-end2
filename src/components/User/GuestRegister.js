@@ -9,7 +9,7 @@ export default function GuestRegister(props) {
     
     const [err, setErr] = useState();
     const [register, setRegister] =useState({
-        email: '',
+        username: '',
         password: ''
     });
 
@@ -42,11 +42,11 @@ export default function GuestRegister(props) {
                         <form onSubmit={handleSubmit}>
                                 {err && <div className='errors'> {err}</div>}
                                 <input 
-                                type='email' 
-                                name='email' 
-                                placeholder='Enter Email'
+                                type='text' 
+                                name='username' 
+                                placeholder='Enter Username'
                                 onChange={handleChange}
-                                value={register.email}/>
+                                value={register.username}/>
                                 <input 
                                 type='password' 
                                 name='password' 
