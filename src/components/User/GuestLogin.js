@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Title from './WelcomeTitle';
-import {FormDiv, Body, Main} from './theme';
+import {FormDiv, Div, Main} from './theme';
 import axiosWithAuth from '../../Auth/axiosWithAuth';
 
 
@@ -37,7 +37,7 @@ export default function GuestLogin(props) {
     }
 
     return (
-        <Body>
+        <Div>
             <Main>
                 <Title/>
                 <FormDiv>
@@ -60,6 +60,6 @@ export default function GuestLogin(props) {
                     </form>
                 </FormDiv>
             </Main>
-        </Body>
+        </Div>
     )
 }

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Title from './WelcomeTitle';
 import axiosWithAuth from '../../Auth/axiosWithAuth';
-import {FormDiv, Body, Main} from './theme';
+import {FormDiv, Div, Main} from './theme';
 
 
 
@@ -26,7 +26,7 @@ export default function GuestRegister(props) {
         axiosWithAuth()
         .post('/api/auth/register', register)
         .then(result => {
-            props.history.push('/api/auth/login')
+            props.history.push('/login')
             // console.log('Success', result.data)
         })
         .catch(e => {
@@ -35,7 +35,7 @@ export default function GuestRegister(props) {
         })
     }
     return (
-        <Body>
+        <Div>
             <Main>
                 <Title/>
                 <FormDiv>
@@ -57,6 +57,6 @@ export default function GuestRegister(props) {
                         </form>
                 </FormDiv>
             </Main>
-        </Body>
+        </Div>
     )
 }
