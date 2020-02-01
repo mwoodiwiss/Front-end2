@@ -1,19 +1,62 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Title from './WelcomeTitle';
 import {FormDiv, Body, Main} from './theme';
+import axiosWithAuth from '../../Auth/axiosWithAuth';
 
 
 
-export default function GuestLogin() {
+export default function GuestLogin(props) {
+
+    const [err, setErr] = useState();
+
+    const [data, setData] = useState({
+        email: '',
+        password: ''
+    })
+
+    const handleChange = (e) => {
+        setData({
+            ...data,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        axiosWithAuth()
+            .post('/api/auth/login', data)
+            .then(result => {
+                localStorage.setItem('token', result.data.token)
+                // props.history.push('/dashboard')
+                
+            })
+            .catch(e => {
+                setErr(e.response.data)
+            })
+    }
+
     return (
         <Body>
             <Main>
                 <Title/>
                 <FormDiv>
-                    <form>
-                        <input type="text" name="username" placeholder="Enter Username or Email"/>
-                        <input type="password" name="password" placeholder="Enter Password"/>
-                        <button type="submit">Have a great workout!</button>
+                    <form onSubmit={handleSubmit}>
+                    {err && <div className='errors'> {err}</div>}
+                            <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="Enter Email"
+                            value={data.email}
+                            onChange={handleChange}
+                            />
+                            <input 
+                            type="password" 
+                            name="password" 
+                            placeholder="Enter Password"
+                            value={data.password}
+                            onChange={handleChange}/>
+                            <button type="submit">Have a great workout!</button>
                     </form>
                 </FormDiv>
             </Main>
