@@ -14,6 +14,7 @@ export default function GuestRegister(props) {
     });
 
     const handleChange = e => {
+        
         setRegister({
             ...register,
             [e.target.name]: e.target.value
