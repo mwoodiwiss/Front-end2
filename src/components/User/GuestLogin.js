@@ -6,11 +6,12 @@ import axiosWithAuth from '../../Auth/axiosWithAuth';
 
 
 export default function GuestLogin(props) {
+    
 
     const [err, setErr] = useState();
 
     const [data, setData] = useState({
-        email: '',
+        username: '',
         password: ''
     })
 
@@ -44,10 +45,10 @@ export default function GuestLogin(props) {
                     <form onSubmit={handleSubmit}>
                     {err && <div className='errors'> {err}</div>}
                             <input 
-                            type="username" 
+                            type="text" 
                             name="username" 
                             placeholder="Enter Username"
-                            value={data.email}
+                            value={data.username}
                             onChange={handleChange}
                             />
                             <input 

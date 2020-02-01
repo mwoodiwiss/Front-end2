@@ -14,6 +14,7 @@ export default function GuestRegister(props) {
     });
 
     const handleChange = e => {
+        
         setRegister({
             ...register,
             [e.target.name]: e.target.value
@@ -42,11 +43,11 @@ export default function GuestRegister(props) {
                         <form onSubmit={handleSubmit}>
                                 {err && <div className='errors'> {err}</div>}
                                 <input 
-                                type='username' 
+                                type='text' 
                                 name='username' 
                                 placeholder='Enter Username'
                                 onChange={handleChange}
-                                value={register.Username}/>
+                                value={register.username}/>
                                 <input 
                                 type='password' 
                                 name='password' 
