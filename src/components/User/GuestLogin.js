@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Title from './WelcomeTitle';
-import {FormDiv, Body, Main} from './theme';
+import {FormDiv, Div, Main} from './theme';
 import axiosWithAuth from '../../Auth/axiosWithAuth';
 
 
@@ -28,7 +28,7 @@ export default function GuestLogin(props) {
             .post('/api/auth/login', data)
             .then(result => {
                 localStorage.setItem('token', result.data.token)
-                // props.history.push('/dashboard')
+                props.history.push('/dashboard')
                 
             })
             .catch(e => {
@@ -37,16 +37,16 @@ export default function GuestLogin(props) {
     }
 
     return (
-        <Body>
+        <Div>
             <Main>
                 <Title/>
                 <FormDiv>
                     <form onSubmit={handleSubmit}>
                     {err && <div className='errors'> {err}</div>}
                             <input 
-                            type="email" 
-                            name="email" 
-                            placeholder="Enter Email"
+                            type="username" 
+                            name="username" 
+                            placeholder="Enter Username"
                             value={data.email}
                             onChange={handleChange}
                             />
@@ -60,6 +60,6 @@ export default function GuestLogin(props) {
                     </form>
                 </FormDiv>
             </Main>
-        </Body>
+        </Div>
     )
 }

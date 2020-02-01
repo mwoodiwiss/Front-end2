@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Title from './WelcomeTitle';
 import {Link} from 'react-router-dom';
-import {Body, Main} from './theme';
+import {Div, Main} from './theme';
 
 const Choices = styled.div`
     display: flex;
@@ -22,7 +22,7 @@ const Choice2 = styled.div`
 
 export default function Welcome(){
     return (
-        <Body>
+        <Div>
             <Main>
                 <Title/>
                 <Choices>
@@ -36,6 +36,6 @@ export default function Welcome(){
                     </Link>
                 </Choices>
             </Main>
-        </Body>
+        </Div>
     )
 }

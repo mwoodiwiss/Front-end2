@@ -1,10 +1,11 @@
 import React, { useState, useContext } from "react";
-import {Route} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import axios from "axios";
 import "./App.css";
 import Welcome from './components/User/WelcomePage';
 import GuestLogin from './components/User/GuestLogin';
 import GuestRegister from './components/User/GuestRegister';
+import ProtectedRoute from './Auth/ProtectedRoute'
 // Contexts
 import { WorkOutContext } from "./contexts/WorkOutContext";
 import { ExcerciseContext } from "./contexts/ExcerciseContext";
@@ -40,10 +41,11 @@ function App() {
   return (
     <WorkOutContext.Provider value={{ workOut, addWorkout }}>
       <ExcerciseContext.Provider value={{ excercise, addExcercise }}>
+        <Switch>
         <Route exact path='/' component={Welcome}/>
         <Route path='/login' component={GuestLogin}/>
         <Route path='/register' component={GuestRegister}/>
-        <Route path='/dashboard' component={Dashboard}/>
+        <ProtectedRoute path='/dashboard' component={Dashboard}/>
           <header>
             <p>Workout Notes: {wrkout1.notes}</p>
             <p>Workout Date: {wrkout1.date}</p>
@@ -51,6 +53,7 @@ function App() {
             <p>Excercise Reps: {excrcse1.reps}</p>
             <p>Excercise Weight: {excrcse1.weight}</p>
           </header> 
+        </Switch>
       </ExcerciseContext.Provider>
     </WorkOutContext.Provider>
   )
