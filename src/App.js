@@ -45,7 +45,7 @@ function App() {
         <Route exact path='/' component={Welcome}/>
         <Route path='/login' component={GuestLogin}/>
         <Route path='/register' component={GuestRegister}/>
-        <Route path='/dashboard' component={Dashboard}/>
+        <ProtectedRoute path='/dashboard' component={Dashboard}/>
           <header>
             <p>Workout Notes: {wrkout1.notes}</p>
             <p>Workout Date: {wrkout1.date}</p>

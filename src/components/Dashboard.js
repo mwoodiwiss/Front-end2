@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import Form from "./Dashform"
 import WorkoutCard from "./WorkoutCard"
-import {Body, Main} from './User/theme';
+import {Div, Main} from './User/theme';
 import styled from 'styled-components';
 
 export default function Dashboard() {
@@ -48,7 +48,7 @@ export default function Dashboard() {
     
   
     return (
-      <Body>
+      <Div>
         <Main>
         <FormDiv>
           <Form addNewWorkout={addNewWorkout} />
@@ -57,6 +57,6 @@ export default function Dashboard() {
         <CardList>
           <WorkoutCard workout={workout} />
         </CardList>
-      </Body>
+      </Div>
     );
 };
