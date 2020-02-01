@@ -1,22 +1,40 @@
-import React from 'react'
-import axios from "axios";
+import React, {useState} from 'react'
 import Title from './WelcomeTitle';
 import {FormDiv, Div, Main} from './theme';
+import axiosWithAuth from '../../Auth/axiosWithAuth';
 
 
 
 export default function GuestLogin(props) {
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        axios.post('https://workout-journal-backend.herokuapp.com/api/auth/login')
-        .then(res => {
-            console.log(res.data)
-            localStorage.setItem('token', res.data.token)
-            props.history.push('/dashboard');
+    const [err, setErr] = useState();
+
+    const [data, setData] = useState({
+        email: '',
+        password: ''
+    })
+
+    const handleChange = (e) => {
+        setData({
+            ...data,
+            [e.target.name]: e.target.value
         })
-        .catch(err => console.log(err));
-    };
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        axiosWithAuth()
+            .post('/api/auth/login', data)
+            .then(result => {
+                localStorage.setItem('token', result.data.token)
+                props.history.push('/dashboard')
+                
+            })
+            .catch(e => {
+                setErr(e.response.data)
+            })
+    }
 
     return (
         <Div>
@@ -24,9 +42,21 @@ export default function GuestLogin(props) {
                 <Title/>
                 <FormDiv>
                     <form onSubmit={handleSubmit}>
-                        <input type="text" name="username" placeholder="Enter Username"/>
-                        <input type="password" name="password" placeholder="Enter Password"/>
-                        <button type="submit">Have a great workout!</button>
+                    {err && <div className='errors'> {err}</div>}
+                            <input 
+                            type="username" 
+                            name="username" 
+                            placeholder="Enter Username"
+                            value={data.email}
+                            onChange={handleChange}
+                            />
+                            <input 
+                            type="password" 
+                            name="password" 
+                            placeholder="Enter Password"
+                            value={data.password}
+                            onChange={handleChange}/>
+                            <button type="submit">Have a great workout!</button>
                     </form>
                 </FormDiv>
             </Main>
