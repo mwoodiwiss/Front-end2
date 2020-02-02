@@ -9,8 +9,8 @@ export default function GuestLogin(props) {
   const [err, setErr] = useState();
 
   const [data, setData] = useState({
-    username: "",
-    password: ""
+    "username": "",
+    "password": ""
   });
 
   const handleChange = e => {
